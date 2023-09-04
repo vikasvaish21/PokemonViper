@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "5840AF00-39B5-4B1B-8724-175CFCC297B1"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "141DBDFC-3D3C-4048-A20B-717DD08459DD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PokemonViper/List/SpeciesListPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "numberOfPokemonSuccesfully(model:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "141DBDFC-3D3C-4048-A20B-717DD08459DD - 267b51969aa08de8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PokemonViper.SpeciesListPresenter.numberOfPokemonSuccesfully(model: PokemonViper.Pokemon) -&gt; ()"
+                  moduleName = "PokemonViper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vikasvaish/Desktop/PokemonViper/PokemonViper/List/SpeciesListPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "77"
+                  endingLineNumber = "77"
+                  offsetFromSymbolStart = "76">
+               </Location>
+               <Location
+                  uuid = "141DBDFC-3D3C-4048-A20B-717DD08459DD - 267b51969aa08dc9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PokemonViper.SpeciesListPresenter.numberOfPokemonSuccesfully(model: PokemonViper.Pokemon) -&gt; ()"
+                  moduleName = "PokemonViper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vikasvaish/Desktop/PokemonViper/PokemonViper/List/SpeciesListPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "64">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1CCE41F3-B92B-472E-AB16-F93C8E6AF70A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PokemonViper/List/SpeciesListPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "allPokemonSpecies()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1CCE41F3-B92B-472E-AB16-F93C8E6AF70A - fb509769a4d5f967"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PokemonViper.SpeciesListPresenter.allPokemonSpecies() -&gt; ()"
+                  moduleName = "PokemonViper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vikasvaish/Desktop/PokemonViper/PokemonViper/List/SpeciesListPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "876">
+               </Location>
+               <Location
+                  uuid = "1CCE41F3-B92B-472E-AB16-F93C8E6AF70A - fb509769a4d5f967"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PokemonViper.SpeciesListPresenter.allPokemonSpecies() -&gt; ()"
+                  moduleName = "PokemonViper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vikasvaish/Desktop/PokemonViper/PokemonViper/List/SpeciesListPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "880">
+               </Location>
+               <Location
+                  uuid = "1CCE41F3-B92B-472E-AB16-F93C8E6AF70A - fb509769a4d5f9a5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PokemonViper.SpeciesListPresenter.allPokemonSpecies() -&gt; ()"
+                  moduleName = "PokemonViper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vikasvaish/Desktop/PokemonViper/PokemonViper/List/SpeciesListPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "880">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "63087B14-CD19-47A9-8331-6C329047BC79"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PokemonViper/List/SpeciesListPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "speciesFetchedSuccessfully(model:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "63087B14-CD19-47A9-8331-6C329047BC79 - 26b3315336e8a6df"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PokemonViper.SpeciesListPresenter.speciesFetchedSuccessfully(model: PokemonViper.Pokemon) -&gt; ()"
+                  moduleName = "PokemonViper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vikasvaish/Desktop/PokemonViper/PokemonViper/List/SpeciesListPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83"
+                  offsetFromSymbolStart = "640">
+               </Location>
+               <Location
+                  uuid = "63087B14-CD19-47A9-8331-6C329047BC79 - 26b3315336e8a6fe"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PokemonViper.SpeciesListPresenter.speciesFetchedSuccessfully(model: PokemonViper.Pokemon) -&gt; ()"
+                  moduleName = "PokemonViper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vikasvaish/Desktop/PokemonViper/PokemonViper/List/SpeciesListPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "84"
+                  endingLineNumber = "84"
+                  offsetFromSymbolStart = "496">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6D7B1CB9-5CE6-4D4C-9EB2-6DA9CF6189B6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PokemonViper/Detail/PokemonDetailPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "319"
+            endingLineNumber = "319"
+            landmarkName = "megaPokemonDescriptionFetchSuccessfully(model:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F03CC8B1-995A-4DF5-AC7B-C17C0E014130"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PokemonViper/Detail/PokemonDetailPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "320"
+            endingLineNumber = "320"
+            landmarkName = "megaPokemonDescriptionFetchSuccessfully(model:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F03CC8B1-995A-4DF5-AC7B-C17C0E014130 - 53467279ed507157"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PokemonViper.PokemonDetailPresenter.megaPokemonDescriptionFetchSuccessfully(model: PokemonViper.PokemonDescription) -&gt; ()"
+                  moduleName = "PokemonViper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vikasvaish/Desktop/PokemonViper/PokemonViper/Detail/PokemonDetailPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "320"
+                  endingLineNumber = "320"
+                  offsetFromSymbolStart = "1420">
+               </Location>
+               <Location
+                  uuid = "F03CC8B1-995A-4DF5-AC7B-C17C0E014130 - 53467279ed507157"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PokemonViper.PokemonDetailPresenter.megaPokemonDescriptionFetchSuccessfully(model: PokemonViper.PokemonDescription) -&gt; ()"
+                  moduleName = "PokemonViper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vikasvaish/Desktop/PokemonViper/PokemonViper/Detail/PokemonDetailPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "320"
+                  endingLineNumber = "320"
+                  offsetFromSymbolStart = "1464">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CF8B7E6F-A315-440B-A819-86726E889E8E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PokemonViper/Detail/PokemonDetailPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "239"
+            endingLineNumber = "239"
+            landmarkName = "setMegaEvolutionPokemon(_:_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "05797B72-E62E-4332-87B7-4BFA89ACF514"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PokemonViper/Detail/PokemonDetailPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "238"
+            endingLineNumber = "238"
+            landmarkName = "setMegaEvolutionPokemon(_:_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "78EBBAED-620F-4106-ADC2-8FE44F8EA238"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PokemonViper/Detail/PokemonDetailViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "273"
+            endingLineNumber = "273"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "78EBBAED-620F-4106-ADC2-8FE44F8EA238 - a56925b03ea3c00"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Int&gt;) -&gt; () in PokemonViper.PokemonDetailViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "PokemonViper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vikasvaish/Desktop/PokemonViper/PokemonViper/Detail/PokemonDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "273"
+                  endingLineNumber = "273"
+                  offsetFromSymbolStart = "8808">
+               </Location>
+               <Location
+                  uuid = "78EBBAED-620F-4106-ADC2-8FE44F8EA238 - a56925b03ea3c00"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Int&gt;) -&gt; () in PokemonViper.PokemonDetailViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "PokemonViper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vikasvaish/Desktop/PokemonViper/PokemonViper/Detail/PokemonDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "273"
+                  endingLineNumber = "273"
+                  offsetFromSymbolStart = "9552">
+               </Location>
+               <Location
+                  uuid = "78EBBAED-620F-4106-ADC2-8FE44F8EA238 - a56925b03ea3c00"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Int&gt;) -&gt; () in PokemonViper.PokemonDetailViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "PokemonViper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vikasvaish/Desktop/PokemonViper/PokemonViper/Detail/PokemonDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "273"
+                  endingLineNumber = "273"
+                  offsetFromSymbolStart = "9588">
+               </Location>
+               <Location
+                  uuid = "78EBBAED-620F-4106-ADC2-8FE44F8EA238 - a56925b03ea3c00"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Int&gt;) -&gt; () in PokemonViper.PokemonDetailViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "PokemonViper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vikasvaish/Desktop/PokemonViper/PokemonViper/Detail/PokemonDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "273"
+                  endingLineNumber = "273"
+                  offsetFromSymbolStart = "9948">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2BA4B17A-A74E-4E9F-9950-77EA093A343B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PokemonViper/Detail/PokemonDetailViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "269"
+            endingLineNumber = "269"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2BA4B17A-A74E-4E9F-9950-77EA093A343B - a56925b03ea3c9c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Int&gt;) -&gt; () in PokemonViper.PokemonDetailViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "PokemonViper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vikasvaish/Desktop/PokemonViper/PokemonViper/Detail/PokemonDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "269"
+                  endingLineNumber = "269"
+                  offsetFromSymbolStart = "6740">
+               </Location>
+               <Location
+                  uuid = "2BA4B17A-A74E-4E9F-9950-77EA093A343B - a56925b03ea3c9c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Int&gt;) -&gt; () in PokemonViper.PokemonDetailViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "PokemonViper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vikasvaish/Desktop/PokemonViper/PokemonViper/Detail/PokemonDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "269"
+                  endingLineNumber = "269"
+                  offsetFromSymbolStart = "7284">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "251F949D-AEDE-4F93-A3F5-4B2A5897DECD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PokemonViper/Detail/PokemonDetailViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "271"
+            endingLineNumber = "271"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "251F949D-AEDE-4F93-A3F5-4B2A5897DECD - a56925b03ea3c42"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Int&gt;) -&gt; () in PokemonViper.PokemonDetailViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "PokemonViper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vikasvaish/Desktop/PokemonViper/PokemonViper/Detail/PokemonDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "271"
+                  endingLineNumber = "271"
+                  offsetFromSymbolStart = "8516">
+               </Location>
+               <Location
+                  uuid = "251F949D-AEDE-4F93-A3F5-4B2A5897DECD - a56925b03ea3c42"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Int&gt;) -&gt; () in PokemonViper.PokemonDetailViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "PokemonViper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vikasvaish/Desktop/PokemonViper/PokemonViper/Detail/PokemonDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "271"
+                  endingLineNumber = "271"
+                  offsetFromSymbolStart = "8552">
+               </Location>
+               <Location
+                  uuid = "251F949D-AEDE-4F93-A3F5-4B2A5897DECD - a56925b03ea3c42"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Int&gt;) -&gt; () in PokemonViper.PokemonDetailViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "PokemonViper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vikasvaish/Desktop/PokemonViper/PokemonViper/Detail/PokemonDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "271"
+                  endingLineNumber = "271"
+                  offsetFromSymbolStart = "9096">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4F0B3D62-7A36-4FAA-9412-C160CB5AB834"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PokemonViper/Detail/PokemonDetailViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "284"
+            endingLineNumber = "284"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
