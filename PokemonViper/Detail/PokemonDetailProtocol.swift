@@ -20,8 +20,6 @@ protocol PokemonDetailViewProtocol {
     func setNaviagtionBar(firstColor: UIColor,secondColor: UIColor)
     func setNavigationBarColor(_ type: PokemonType)
     func setUpImageView(_ url: URL)
-//    func reloadData()
-//
 }
 
 
@@ -52,8 +50,9 @@ protocol PokemonDetailPresenterProtocol {
     func setPokemonName() -> String
     func setPokemonType1() -> String
     func setPokemonType2() -> String
-    func setBasePokemon(_ secondryEvolution: Int) -> ([String],[String])
+    func setBasePokemon(_ secondaryEvolution: Int) -> ([String],[String])
     func setMegaEvolutionPokemon(_ megaPokemons:[String],_ value:([String],[String])) -> ([String],[String])
+    func setMegaEvolutionForBaseEvolution(_ basePokemon: String,_ megaEvolution:[String]) -> ([String],[String])
     func setPokemonEvolution() -> PokemonEvolutionChain?
     func statiticColorType() -> UIColor
     func pokemonStatData() -> [Stat]?

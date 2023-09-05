@@ -262,26 +262,23 @@ extension PokemonDetailViewController: UITableViewDelegate,UITableViewDataSource
                 cell.firstEvolutionSpecie = presenter.firstEvolutionSpecie
                 cell.secondEvolutionSpecie = presenter.secondEvolutionSpecie
                 cell.evolutionSequence = presenter.setUpPokemonSequence()
-                var value = presenter.setBasePokemon(presenter.secondEvolutionName.values.count)
+                let value = presenter.setBasePokemon(presenter.secondEvolutionName.values.count)
                 if !value.0.isEmpty && !value.1.isEmpty{
                    megaPokemon = getAllEvolutionPokemon(value)
-                }else if !presenter.setBasePokemon(presenter.evolutionNames.values.count).0.isEmpty && !presenter.setBasePokemon(presenter.evolutionNames.values.count).1.isEmpty && !presenter.totalMegaPokemons.isEmpty{
-                    megaPokemon = getAllEvolutionPokemon(([presenter.evolutionNames.keys.first!],Array(presenter.totalMegaPokemons)))
-                }else if !presenter.totalMegaPokemons.isEmpty{
-                    megaPokemon = getAllEvolutionPokemon(([presenter.setPokemonName()],Array(presenter.totalMegaPokemons)))
                 }else{
                     megaPokemon = value
                 }
+                if !megaPokemon.0.isEmpty && !megaPokemon.1.isEmpty{
+                    cell.baseEvolutionArray = megaPokemon.0.map{$0.replacingOccurrences(of: "-", with: " ")}
+                    cell.evolutionArray = megaPokemon.1.map{$0.replacingOccurrences(of: "-", with: " ")}
+                    
+                }else{
+                    cell.baseEvolutionArray = megaPokemon.0.map{$0.replacingOccurrences(of: "-", with: " ")}
+                    cell.evolutionArray = megaPokemon.1.map{$0.replacingOccurrences(of: "-", with: " ")}
+                }
             }
-            if !megaPokemon.0.isEmpty && !megaPokemon.1.isEmpty{
-                cell.baseEvolutionArray = megaPokemon.0
-                cell.evolutionArray = megaPokemon.1
-                
-            }else{
-                cell.baseEvolutionArray = megaPokemon.0
-                cell.evolutionArray = megaPokemon.1
-            }
-            var imageValue = presenter.setEvolutionPokmonImages((presenter.mainBasePokemonArray,presenter.mainEvolutionPokemonArray))
+            
+            let imageValue = presenter.setEvolutionPokmonImages((presenter.mainBasePokemonArray,presenter.mainEvolutionPokemonArray))
             cell.basePokemonImgaeArray = imageValue.0
             cell.evolutionPokemonImageArray = imageValue.1
             cell.reloadTableView()
