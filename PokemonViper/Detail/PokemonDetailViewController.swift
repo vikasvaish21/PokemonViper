@@ -249,38 +249,20 @@ extension PokemonDetailViewController: UITableViewDelegate,UITableViewDataSource
             return cell
         } else if indexPath.row == 2{
             let cell = pokemonTableView.dequeueReusableCell(withIdentifier: EvolutionTableCell.reuseIdentifier, for: indexPath) as! EvolutionTableCell
-            cell.titleLabel.text = "Evolutions"
-            var megaPokemon = ([""],[""])
-            presenter.numberOfEvolutions { [self] data in
-                cell.totalEvolutions = data
+            if !presenter.normalEvolutionChain.0.isEmpty && !presenter.normalEvolutionChain.1.isEmpty && !presenter.normalEvolutionChainImages.0.isEmpty &&
+                !presenter.normalEvolutionChainImages.1.isEmpty{
+                cell.titleLabel.text = "Evolutions"
                 cell.evolutionNames = presenter.evolutionNames
                 cell.secondEvolutionName = presenter.secondEvolutionName
+                cell.baseEvolutionArray = presenter.normalEvolutionChain.0
+                cell.evolutionArray = presenter.normalEvolutionChain.1
+                cell.basePokemonImgaeArray = presenter.normalEvolutionChainImages.0
+                cell.evolutionPokemonImageArray = presenter.normalEvolutionChainImages.1
                 cell.evolutionStone = presenter.evolutionStone
-                cell.secondEvolutionStone = presenter.secondEvolutionStone
                 cell.evolutionHappinessLevel = presenter.evolutionHappinessLevel
+                cell.secondEvolutionStone = presenter.secondEvolutionStone
                 cell.secondEvolutionHappinessLavel = presenter.secondEvolutionHappinessLavel
-                cell.firstEvolutionSpecie = presenter.firstEvolutionSpecie
-                cell.secondEvolutionSpecie = presenter.secondEvolutionSpecie
-                cell.evolutionSequence = presenter.setUpPokemonSequence()
-                let value = presenter.setBasePokemon(presenter.secondEvolutionName.values.count)
-                if !value.0.isEmpty && !value.1.isEmpty{
-                   megaPokemon = getAllEvolutionPokemon(value)
-                }else{
-                    megaPokemon = value
-                }
-                if !megaPokemon.0.isEmpty && !megaPokemon.1.isEmpty{
-                    cell.baseEvolutionArray = megaPokemon.0.map{$0.replacingOccurrences(of: "-", with: " ")}
-                    cell.evolutionArray = megaPokemon.1.map{$0.replacingOccurrences(of: "-", with: " ")}
-                    
-                }else{
-                    cell.baseEvolutionArray = megaPokemon.0.map{$0.replacingOccurrences(of: "-", with: " ")}
-                    cell.evolutionArray = megaPokemon.1.map{$0.replacingOccurrences(of: "-", with: " ")}
-                }
             }
-            
-            let imageValue = presenter.setEvolutionPokmonImages((presenter.mainBasePokemonArray,presenter.mainEvolutionPokemonArray))
-            cell.basePokemonImgaeArray = imageValue.0
-            cell.evolutionPokemonImageArray = imageValue.1
             cell.reloadTableView()
             return cell
         }
@@ -289,8 +271,8 @@ extension PokemonDetailViewController: UITableViewDelegate,UITableViewDataSource
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 2{
-            if !presenter.mainBasePokemonArray.isEmpty && !presenter.mainEvolutionPokemonArray.isEmpty{
-                let height = (presenter.mainBasePokemonArray.count) * 120
+            if !presenter.normalEvolutionChain.0.isEmpty{
+                let height = (presenter.normalEvolutionChain.0.count) * 120
                 return CGFloat(height)+80.0
             }
         }
@@ -299,11 +281,6 @@ extension PokemonDetailViewController: UITableViewDelegate,UITableViewDataSource
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
-    }
-    
-    func getAllEvolutionPokemon(_ value:([String],[String])) -> ([String],[String]){
-        let megaValue = presenter.setMegaEvolutionPokemon(presenter.totalMegaPokemons, value)
-        return megaValue
     }
     
 }

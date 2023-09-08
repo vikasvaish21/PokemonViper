@@ -24,8 +24,6 @@ class PokemonTableViewCell: UITableViewCell {
         contentView.addSubview(orderLabel)
         
         contentView.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 0.8)
-        myLabel.translatesAutoresizingMaskIntoConstraints = false
-        myImage.translatesAutoresizingMaskIntoConstraints = false
         myImage.anchor(top: contentView.topAnchor, left: contentView.leftAnchor, bottom: contentView.bottomAnchor,paddingTop: 5,paddingLeft: 10,paddingBottom: 5,paddingRight: 5,width: 100,height: 100)
         myLabel.anchor(top: myImage.topAnchor,left: myImage.rightAnchor,paddingTop: 8,paddingLeft: 10)
         orderLabel.anchor(left: myLabel.leftAnchor,bottom: myImage.bottomAnchor,paddingBottom: 8)

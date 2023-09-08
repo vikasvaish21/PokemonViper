@@ -50,9 +50,9 @@ protocol PokemonDetailPresenterProtocol {
     func setPokemonName() -> String
     func setPokemonType1() -> String
     func setPokemonType2() -> String
-    func setBasePokemon(_ secondaryEvolution: Int) -> ([String],[String])
-    func setMegaEvolutionPokemon(_ megaPokemons:[String],_ value:([String],[String])) -> ([String],[String])
-    func setMegaEvolutionForBaseEvolution(_ basePokemon: String,_ megaEvolution:[String]) -> ([String],[String])
+//    func setBasePokemon()  -> ([String],[String])
+    var normalEvolutionChain: ([String],[String]) {get}
+    var normalEvolutionChainImages:([String],[String]) {get}
     func setPokemonEvolution() -> PokemonEvolutionChain?
     func statiticColorType() -> UIColor
     func pokemonStatData() -> [Stat]?
@@ -67,8 +67,8 @@ protocol PokemonDetailPresenterProtocol {
     var evolutionStone : [String:[String]]{get}
     var secondEvolutionStone : [String:[String]]{get}
     var evolutionHappinessLevel : [String: [Int]]{get}
-    var mainBasePokemonArray: [String] {get}
-    var mainEvolutionPokemonArray:[String] {get}
+    var mainBasePokemonArray: [String] {get set}
+    var mainEvolutionPokemonArray:[String] {get set}
     var secondEvolutionHappinessLavel : [String: [Int]]{get}
     var secondEvolutionSpecie : [String:String]{get}
     var firstEvolutionSpecie : [String: String]{get}

@@ -60,7 +60,6 @@ class SpeciesListViewController: UIViewController, SpeciesListViewProtocol{
     
     func setUpTableview() {
         view.addSubview(pokemonTableView)
-        pokemonTableView.translatesAutoresizingMaskIntoConstraints = false
         pokemonTableView.backgroundColor = UIColor(red: 210/255, green: 248/255, blue: 210/255, alpha: 1)
         pokemonTableView.backgroundColor = .white
         pokemonTableView.anchor(top: pokemonSearchBar.bottomAnchor,left: pokemonSearchBar.leftAnchor,bottom: view.bottomAnchor,right: view.rightAnchor)
@@ -71,7 +70,6 @@ class SpeciesListViewController: UIViewController, SpeciesListViewProtocol{
         view.addSubview(pokemonSearchBar)
         pokemonSearchBar.backgroundColor = .white
         pokemonSearchBar.showsCancelButton = false
-        pokemonSearchBar.translatesAutoresizingMaskIntoConstraints = false
         pokemonSearchBar.anchor(top: view.layoutMarginsGuide.topAnchor,left: view.leftAnchor,right: view.rightAnchor)
         pokemonSearchBar.barTintColor = UIColor.primaryColor
         pokemonSearchBar.searchTextField.backgroundColor = .white
@@ -127,7 +125,7 @@ extension SpeciesListViewController: UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.estimatedRowHeight
+        return UITableView.automaticDimension
     }
     
     

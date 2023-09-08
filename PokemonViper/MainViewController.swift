@@ -19,9 +19,9 @@ class MainViewController: UITabBarController{
         UITabBar.appearance().tintColor = .black
         UITabBar.appearance().backgroundColor = .primaryColor
         let homeVC = UINavigationController(rootViewController: SpeciesListRouter.createModule())
-        setupHomeTabBar()
         let favouriteVC = UINavigationController(rootViewController: FavouriteVC())
         let notifyVC = UINavigationController(rootViewController: NotifyVC())
+        setupHomeTabBar()
         homeVC.title = "Pokemon"
         favouriteVC.title = "Favourite"
         notifyVC.title = "Items"

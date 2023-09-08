@@ -38,14 +38,14 @@ class EvolutionChainCell: UITableViewCell{
         return imageView
     }()
     
-    let basePokemonLabel = MyLabel(textSize: 16, color: .black, alignment: .center)
+    let basePokemonLabel = MyLabel(textSize: 15, color: .black, alignment: .center)
     
     let evolutionPokemon: UIImageView = {
         let imageView = UIImageView()
         return imageView
     }()
     
-    let evolutionPokemonLabel = MyLabel(textSize: 16, color: .black, alignment: .center)
+    let evolutionPokemonLabel = MyLabel(textSize: 15, color: .black, alignment: .center)
     
     let rightArrow: UIImageView = {
         let imageView = UIImageView()

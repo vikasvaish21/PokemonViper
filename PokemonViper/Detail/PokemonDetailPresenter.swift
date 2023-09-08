@@ -8,12 +8,8 @@
 import Foundation
 import UIKit
 class PokemonDetailPresenter : PokemonDetailInteractorOutputProtocol,PokemonDetailPresenterProtocol{
-
     
-    
-    
-    
-    
+    typealias newData = ([String],[String])
     var view : PokemonDetailViewProtocol?
     private let interactor: PokemonDetailInteractorInputProtocol
     private let router: PokemonDetailRouter
@@ -24,10 +20,11 @@ class PokemonDetailPresenter : PokemonDetailInteractorOutputProtocol,PokemonDeta
     var pokemonEvolution: PokemonEvolutionChain?
     private let manager : PokemonManager = PokemonManager()
     var pokemonMegaAndGmaxform  = [String]()
-    var evolutionChainUrl: String = ""
     var evolutionNames = [String:[Int]]()
     var secondEvolutionName = [String:[Int]]()
     var evolutionStone = [String:[String]]()
+    var normalEvolutionChain = ([""],[""])
+    var normalEvolutionChainImages = ([""],[""])
     var secondEvolutionStone = [String:[String]]()
     var evolutionHappinessLevel = [String: [Int]]()
     var secondEvolutionHappinessLavel =  [String: [Int]]()
@@ -42,8 +39,6 @@ class PokemonDetailPresenter : PokemonDetailInteractorOutputProtocol,PokemonDeta
     var mainEvolutionPokemonArray = [String]()
     var mainBasePokemonImageArray = [String]()
     var mainEvolutionPokemonImageArray = [String]()
-    var mainbaseMegaEvolution = [String]()
-    var mainAllMegaAndGmaxEvolution = [String]()
     var evolutionSequence = [String:[String]]()
 
     
@@ -59,6 +54,15 @@ class PokemonDetailPresenter : PokemonDetailInteractorOutputProtocol,PokemonDeta
         setUpTextOnLabel()
         fetchPokemonData()
         fetchPokemonDescription()
+        initializePokemonArray() 
+        
+    }
+    
+    func initializePokemonArray() {
+        normalEvolutionChain.0.removeAll()
+        normalEvolutionChain.1.removeAll()
+        normalEvolutionChainImages.0.removeAll()
+        normalEvolutionChainImages.1.removeAll()
     }
     
     
@@ -187,8 +191,10 @@ class PokemonDetailPresenter : PokemonDetailInteractorOutputProtocol,PokemonDeta
         return evolutionSequence
     }
     
-    func setBasePokemon(_ secondaryEvolution: Int) -> ([String],[String]){
-        if mainBasePokemonArray.isEmpty && !basePokemonArray.isEmpty{
+    func setBaseEvolutionPokemon() -> ([String],[String]){
+        mainBasePokemonArray.removeAll()
+        mainEvolutionPokemonArray.removeAll()
+        if !basePokemonArray.isEmpty{
             for i in basePokemonArray{
                 let count = evolutionSequence[i]?.count ?? 0
                 for _ in 0..<count{
@@ -197,7 +203,7 @@ class PokemonDetailPresenter : PokemonDetailInteractorOutputProtocol,PokemonDeta
             }
         }
         
-        if mainEvolutionPokemonArray.isEmpty && !basePokemonArray.isEmpty{
+        if !basePokemonArray.isEmpty{
             for j in basePokemonArray{
                 let values = evolutionSequence[j]
                 for k in 0..<(values?.count ?? 0){
@@ -205,26 +211,10 @@ class PokemonDetailPresenter : PokemonDetailInteractorOutputProtocol,PokemonDeta
                 }
             }
         }
-        
-        if secondaryEvolution == 1{
-            print(secondEvolutionSpecie)
-            numberOfMegaEvolution(secondEvolutionSpecie.values.first ?? "")
-        }
-        
         return (mainBasePokemonArray,mainEvolutionPokemonArray)
     }
     
-    
-    func setMegaEvolutionForBaseEvolution(_ basePokemon: String,_ megaEvolution:[String]) -> ([String],[String]){
-        if mainBasePokemonArray.isEmpty && mainEvolutionPokemonArray.isEmpty{
-            for i in 0..<megaEvolution.count{
-                mainBasePokemonArray.append(basePokemon)
-                mainEvolutionPokemonArray.append(megaEvolution[i])
-            }
-        }
-        return (mainBasePokemonArray,mainEvolutionPokemonArray)
-    }
-    
+
     func setEvolutionPokmonImages(_ value : ([String],[String])) -> ([String],[String]){
         mainBasePokemonImageArray.removeAll()
         mainEvolutionPokemonImageArray.removeAll()
@@ -232,37 +222,21 @@ class PokemonDetailPresenter : PokemonDetailInteractorOutputProtocol,PokemonDeta
         if !value.0.isEmpty && !value.1.isEmpty{
             for i in value.0{
                 if let pokemonData = result?.filter({$0.name == i}).first{
-                    mainBasePokemonImageArray.append(pokemonData.sprites ?? "")
+                    if let value = pokemonData.sprites{
+                        mainBasePokemonImageArray.append(value)
+                    }
                 }
             }
             
             for j in value.1{
                 if let pokemonData = result?.filter({$0.name == j}).first{
-                    mainEvolutionPokemonImageArray.append(pokemonData.sprites ?? "")
+                    if let value = pokemonData.sprites{
+                        mainEvolutionPokemonImageArray.append(value)
+                    }
                 }
             }
         }
         return (mainBasePokemonImageArray,mainEvolutionPokemonImageArray)
-    }
-    
-    func setMegaEvolutionPokemon(_ megaPokemons:[String],_ value: ([String],[String])) -> ([String],[String]){
-        var value = value
-        if !megaPokemons.isEmpty{
-            for _ in 0..<megaPokemons.count{
-//                mainbaseMegaEvolution.append(mainEvolutionPokemonArray.last ?? "")
-                let evolutedForm = megaPokemons.first?.components(separatedBy: "-")
-                mainbaseMegaEvolution.append(evolutedForm?.first ?? "")
-            }
-            for i in 0..<megaPokemons.count{
-                mainAllMegaAndGmaxEvolution.append(megaPokemons[i] )
-            }
-            value.0 += mainbaseMegaEvolution
-            value.1 += mainAllMegaAndGmaxEvolution
-            mainBasePokemonArray = value.0
-            mainEvolutionPokemonArray = value.1
-        }
-        print(mainBasePokemonArray,mainEvolutionPokemonArray)
-        return (mainBasePokemonArray,mainEvolutionPokemonArray)
     }
     
     
@@ -324,7 +298,6 @@ class PokemonDetailPresenter : PokemonDetailInteractorOutputProtocol,PokemonDeta
                 }
             }
         }
-        view?.reloadData()
     }
     
     
@@ -334,11 +307,18 @@ class PokemonDetailPresenter : PokemonDetailInteractorOutputProtocol,PokemonDeta
             if let megaPokemons = findMegaAndGmaxPokemon(model){
                 totalMegaPokemons = megaPokemons
             }
-            if !totalMegaPokemons.isEmpty{
-                view?.reloadData()
+        }else{
+            totalMegaPokemons = pokemonMegaAndGmaxform
+        }
+        for i in 0..<totalMegaPokemons.count{
+            if let pokemonName = model.name{
+                normalEvolutionChain.0.append(pokemonName)
             }
+            normalEvolutionChain.1.append(totalMegaPokemons[i])
         }
         
+        normalEvolutionChainImages = setEvolutionPokmonImages(normalEvolutionChain)
+        view?.reloadData()
     }
     
     func singlePokemonFetchedSuccessfully(model: SinglePokemon) {
@@ -348,7 +328,18 @@ class PokemonDetailPresenter : PokemonDetailInteractorOutputProtocol,PokemonDeta
     
     func pokemonEvolutionFetchSuccessfully(model: PokemonEvolutionChain) {
         pokemonEvolution = model
-        view?.reloadData()
+        numberOfEvolutions { data in
+            print(data ?? 0)
+        }
+        normalEvolutionChain = setBaseEvolutionPokemon()
+        if !secondEvolutionName.isEmpty{
+            numberOfMegaEvolution(secondEvolutionSpecie[((normalEvolutionChain.1.last)!)]!)
+        }else if secondEvolutionName.isEmpty && !evolutionNames.isEmpty{
+            numberOfMegaEvolution(firstEvolutionSpecie[(normalEvolutionChain.1.last!)]!)
+        }else if secondEvolutionName.isEmpty && evolutionNames.isEmpty{
+            numberOfMegaEvolution(model.chain?.species?.url ?? "")
+        }
+
     }
     
     
@@ -395,9 +386,6 @@ class PokemonDetailPresenter : PokemonDetailInteractorOutputProtocol,PokemonDeta
                 evolutionSequence[firstForm] = secondEvolutionName.keys.map{$0}
             }
         }
-//        if let pokemon = secondEvolutionSpecie.values.first{
-//            numberOfMegaEvolution(pokemon)
-//        }
         
         totalEvolutions = evolutionNames.count + secondEvolutionName.count
         completionHandler(totalEvolutions)

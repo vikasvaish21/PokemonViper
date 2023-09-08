@@ -65,7 +65,6 @@ class EvolutionTableCell: UITableViewCell{
         evolutionStone.merge(secondEvolutionStone) { evolutionStone, _ in
             evolutionStone
         }
-        print(evolutionNames)
         pokemonTableView.reloadData()
     }
     
@@ -95,9 +94,9 @@ extension EvolutionTableCell: UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = pokemonTableView.dequeueReusableCell(withIdentifier: EvolutionChainCell.reuseIdentifier, for: indexPath) as! EvolutionChainCell
         if !baseEvolutionArray.isEmpty{
-            cell.basePokemonLabel.text = baseEvolutionArray[indexPath.row].capitalized
+            cell.basePokemonLabel.text = baseEvolutionArray[indexPath.row].replacingOccurrences(of: "-", with: " ").capitalized
             var currentPokemon  = evolutionArray[indexPath.row].capitalized
-            cell.evolutionPokemonLabel.text = currentPokemon
+            cell.evolutionPokemonLabel.text = currentPokemon.replacingOccurrences(of: "-", with: " ").capitalized
             if let levelAvailable = evolutionNames[evolutionArray[indexPath.row]]?.first{
                 cell.rightArrowLabel.text = "Level \(levelAvailable)"
             }else{
@@ -122,8 +121,6 @@ extension EvolutionTableCell: UITableViewDataSource,UITableViewDelegate{
                 }
             }
         }
-            
-       
         return cell
     }
     
