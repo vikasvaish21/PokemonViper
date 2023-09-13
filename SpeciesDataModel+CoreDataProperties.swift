@@ -1,8 +1,8 @@
 //
 //  SpeciesDataModel+CoreDataProperties.swift
-//  PokemonViper
+//  
 //
-//  Created by Vikas Vaish on 22/10/22.
+//  Created by Vikas Vaish on 11/09/23.
 //
 //
 

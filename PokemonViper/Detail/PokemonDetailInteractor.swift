@@ -8,6 +8,8 @@
 import Foundation
 class PokemonDetailInteractor: PokemonDetailInteractorInputProtocol{
     
+    
+    
     var presenter: PokemonDetailInteractorOutputProtocol?
     var pokemon: PokemonSavedData?
     
@@ -54,10 +56,17 @@ class PokemonDetailInteractor: PokemonDetailInteractorInputProtocol{
     }
     
     
-    func fetchPokemonSpeciesRegion(_ Requesturl: URL) {
-//        APIClient.fetchPokemon(Requesturl, expecting: <#T##(Decodable & Encodable).Protocol#>) { [weak self] result in
-//            switch
-//        }
+    func fetchPokemonMovesDetail(_ Requesturl: URL) {
+        APIClient.fetchPokemon(Requesturl, expecting: PokemonMovesDetail.self) { [weak self] result in
+            switch result {
+            case .success(let data):
+                DispatchQueue.main.async {
+                    self?.presenter?.pokemonMovesFetchSuccesfully(model: data)
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
     

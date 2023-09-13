@@ -34,19 +34,22 @@ struct Chain: Codable {
 
 // MARK: - EvolutionDetail
 struct EvolutionDetail: Codable {
-    let item: Item?
+    let item,heldItem: Item?
     let minLevel: Int?
     let minHappiness: Int?
     let needsOverworldRain: Bool?
     let timeOfDay: String?
+    let trigger: Item?
     let turnUpsideDown: Bool?
 
     enum CodingKeys: String, CodingKey {
         case item
         case minLevel = "min_level"
+        case heldItem = "held_item"
         case needsOverworldRain = "needs_overworld_rain"
         case minHappiness = "min_happiness"
         case timeOfDay = "time_of_day"
+        case trigger
         case turnUpsideDown = "turn_upside_down"
     }
 }

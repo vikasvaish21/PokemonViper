@@ -28,7 +28,7 @@ struct pokemonDataRepository: PokemonRepository{
     }
     
     func getAll() -> [PokemonSavedData] {
-        let result = PersistanceStorage.shared.fetchManagedObject(managedObject: SpeciesDataModel.self)
+        let result = PersistanceStorage.shared.fetchManagedObjectForPokemon(managedObject: SpeciesDataModel.self)
         var pokemons : [PokemonSavedData] = []
         result?.forEach({ (SpeciesDataModel) in
 //            let pokemon = PokemonSavedData(name: SpeciesDataModel.name, id: SpeciesDataModel.id, sprites: SpeciesDataModel.image, primaryTypes: SpeciesDataModel.primaryType,secondaryType: SpeciesDataModel.secondaryType)

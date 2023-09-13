@@ -40,9 +40,24 @@ final class PersistanceStorage{
         }
     }
     
-    func fetchManagedObject<T: NSManagedObject>(managedObject: T.Type) -> [T]? {
+    func fetchManagedObjectForPokemon<T: NSManagedObject>(managedObject: T.Type) -> [T]? {
         let request = SpeciesDataModel.fetchRequest() as NSFetchRequest <SpeciesDataModel>
         let sort = NSSortDescriptor(key: "pokemonNo", ascending: true)
+        request.sortDescriptors = [sort]
+        do {
+            guard let result = try PersistanceStorage.shared.context.fetch(request) as? [T] else {return nil}
+            
+            
+            return result
+        } catch let error {
+            debugPrint(error)
+        }
+        return nil
+    }
+    
+    func fetchManagedObjectForMoves<T: NSManagedObject>(managedObject: T.Type) -> [T]? {
+        let request = MovesDataModel.fetchRequest() as NSFetchRequest <MovesDataModel>
+        let sort = NSSortDescriptor(key: "moveNo", ascending: true)
         request.sortDescriptors = [sort]
         do {
             guard let result = try PersistanceStorage.shared.context.fetch(request) as? [T] else {return nil}

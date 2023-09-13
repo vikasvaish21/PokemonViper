@@ -23,7 +23,6 @@ class SpeciesListPresenter: SpeciesListInteractorOutputProtocol,SpeciesListPrese
     private var filteredSpecies: [SinglePokemon] = []
     var offset: Int = 0
     var totalOffsets = 0
-    var limit = 10
     var result = [PokemonSavedData]()
     
     var isSearchMode:Bool = false
@@ -41,6 +40,7 @@ class SpeciesListPresenter: SpeciesListInteractorOutputProtocol,SpeciesListPrese
     func viewDidLoad() {
         result = manager.fetchPokemon()!
         offset = result.count
+        print(offset)
         if result.count != 0{
             searchResult = result
         }else{
@@ -91,7 +91,6 @@ class SpeciesListPresenter: SpeciesListInteractorOutputProtocol,SpeciesListPrese
         pokemon.append(data)
         insertRecords(data)
         pokemon = pokemon.sorted{ $0.id! < $1.id!}
-        print(pokemon.count)
         filteredSpecies = pokemon
         DispatchQueue.main.async { [weak self] in
             self?.view?.reloadData()

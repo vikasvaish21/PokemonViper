@@ -19,11 +19,11 @@ class MainViewController: UITabBarController{
         UITabBar.appearance().tintColor = .black
         UITabBar.appearance().backgroundColor = .primaryColor
         let homeVC = UINavigationController(rootViewController: SpeciesListRouter.createModule())
-        let favouriteVC = UINavigationController(rootViewController: FavouriteVC())
-        let notifyVC = UINavigationController(rootViewController: NotifyVC())
+        let favouriteVC = UINavigationController(rootViewController: MovesListRouter.createModule())
+        let notifyVC = UINavigationController(rootViewController: ItemRouter.createModule())
         setupHomeTabBar()
         homeVC.title = "Pokemon"
-        favouriteVC.title = "Favourite"
+        favouriteVC.title = "Moves"
         notifyVC.title = "Items"
         self.setViewControllers([homeVC,favouriteVC,notifyVC], animated: false)
         guard let items = self.tabBar.items else{return}
@@ -63,23 +63,5 @@ class MainViewController: UITabBarController{
             debugPrint(error)
         }
 
-    }
-}
-
-
-
-class FavouriteVC: UIViewController{
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .systemBlue
-        title = "Moves"
-    }
-}
-
-class NotifyVC: UIViewController{
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .systemTeal
-        title = "Items"
     }
 }

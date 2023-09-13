@@ -27,6 +27,7 @@ protocol PokemonDetailInteractorOutputProtocol {
     func singlePokemonFetchedSuccessfully(model: SinglePokemon)
     func pokemonDescriptionFetchSuccessfully(model: PokemonDescription)
     func pokemonEvolutionFetchSuccessfully(model: PokemonEvolutionChain)
+    func pokemonMovesFetchSuccesfully(model: PokemonMovesDetail)
     func megaPokemonDescriptionFetchSuccessfully(model: PokemonDescription) 
     
 }
@@ -36,7 +37,7 @@ protocol PokemonDetailInteractorInputProtocol {
 //    var presenter: PokemonDetailInteractorOutputProtocol? {get set}
     func fetchSinglePokemon( _ RequestUrl: URL)
     func fetchPokemonDescription( _ RequestUrl: URL)
-    func fetchPokemonSpeciesRegion(_ Requesturl: URL)
+    func fetchPokemonMovesDetail(_ Requesturl: URL)
     func fetchPokemonEvolution(_ requestUrl: URL)
     func fetchMegaPokemonDescription( _ RequestUrl: URL)
 }
@@ -50,7 +51,8 @@ protocol PokemonDetailPresenterProtocol {
     func setPokemonName() -> String
     func setPokemonType1() -> String
     func setPokemonType2() -> String
-//    func setBasePokemon()  -> ([String],[String])
+    func setUpMoveslevel() ->[(String,String)]
+    func setUpMoveType() ->[String:String]
     var normalEvolutionChain: ([String],[String]) {get}
     var normalEvolutionChainImages:([String],[String]) {get}
     func setPokemonEvolution() -> PokemonEvolutionChain?
@@ -72,7 +74,9 @@ protocol PokemonDetailPresenterProtocol {
     var secondEvolutionHappinessLavel : [String: [Int]]{get}
     var secondEvolutionSpecie : [String:String]{get}
     var firstEvolutionSpecie : [String: String]{get}
-    
+    var evolutionHeldItem : [String: [String]]{get}
+    var evolutionTimeAndDay : [String: [String]]{get}
+    var evolutionTriggers : [String:[String]]{get}
     var basePokemon : String{get}
     
 }

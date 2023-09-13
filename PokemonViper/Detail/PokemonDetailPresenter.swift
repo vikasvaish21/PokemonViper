@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 class PokemonDetailPresenter : PokemonDetailInteractorOutputProtocol,PokemonDetailPresenterProtocol{
     
+    
+    
     typealias newData = ([String],[String])
     var view : PokemonDetailViewProtocol?
     private let interactor: PokemonDetailInteractorInputProtocol
@@ -19,6 +21,7 @@ class PokemonDetailPresenter : PokemonDetailInteractorOutputProtocol,PokemonDeta
     var pokemonData : SinglePokemon?
     var pokemonEvolution: PokemonEvolutionChain?
     private let manager : PokemonManager = PokemonManager()
+    var movesDetail = [PokemonMovesDetail]()
     var pokemonMegaAndGmaxform  = [String]()
     var evolutionNames = [String:[Int]]()
     var secondEvolutionName = [String:[Int]]()
@@ -27,9 +30,14 @@ class PokemonDetailPresenter : PokemonDetailInteractorOutputProtocol,PokemonDeta
     var normalEvolutionChainImages = ([""],[""])
     var secondEvolutionStone = [String:[String]]()
     var evolutionHappinessLevel = [String: [Int]]()
+    var evolutionHeldItem = [String: [String]]()
+    var evolutionTimeAndDay = [String: [String]]()
+    var evolutionTriggers = [String:[String]]()
     var secondEvolutionHappinessLavel =  [String: [Int]]()
     var secondEvolutionSpecie = [String:String]()
     var firstEvolutionSpecie = [String: String]()
+    var movesLevel = [String:String]()
+    var movesType = [String:String]()
     var totalEvolutions :Int?
     var totalMegaPokemons = [String]()
     var basePokemon = String()
@@ -54,7 +62,7 @@ class PokemonDetailPresenter : PokemonDetailInteractorOutputProtocol,PokemonDeta
         setUpTextOnLabel()
         fetchPokemonData()
         fetchPokemonDescription()
-        initializePokemonArray() 
+        initializePokemonArray()
         
     }
     
@@ -145,14 +153,20 @@ class PokemonDetailPresenter : PokemonDetailInteractorOutputProtocol,PokemonDeta
         interactor.fetchMegaPokemonDescription(url ?? URL(fileURLWithPath: ""))
     }
     
-    func fetchPokemonRegion(){
-        let number = pokemon?.pokemonNo
-        let pokemonRegionUrl = URL(string: Constants.pokemonRegionUrl + "\(number ?? 0)")
-        interactor.fetchPokemonSpeciesRegion(pokemonRegionUrl!)
-    }
-    
     func fetchPokemonEvolution(_ url : String) {
         self.interactor.fetchPokemonEvolution(URL(string: url)!)
+    }
+    
+    
+    func fetchMovesDetail() {
+        let moves = pokemonData?.moves.map { $0.move.url }
+        if let urlArray = moves{
+            for url in urlArray{
+                DispatchQueue.main.async {
+                    self.interactor.fetchPokemonMovesDetail(URL(string: url)!)
+                }
+            }
+        }
     }
     
     
@@ -189,6 +203,26 @@ class PokemonDetailPresenter : PokemonDetailInteractorOutputProtocol,PokemonDeta
     
     func setUpPokemonSequence() -> [String:[String]]{
         return evolutionSequence
+    }
+
+    func setUpMoveslevel() ->[(String,String)]{
+        let count = pokemonData?.moves.count ?? 0
+        for i in 0..<count{
+            if (pokemonData?.moves[i].versionGroupDetails.first!.levelLearnedAt)! > 0{
+                if let levelNo = pokemonData?.moves[i].versionGroupDetails.first!.levelLearnedAt{
+                    movesLevel[(pokemonData?.moves[i].move.name)!] = "\(levelNo)"
+                }
+            }
+        }
+        let level = movesLevel.sorted(by: { $0.value < $1.value })
+        return level
+    }
+    
+    func setUpMoveType() ->[String:String] {
+        for i in 0..<movesDetail.count{
+            movesType[movesDetail[i].name!] = movesDetail[i].type.name
+        }
+        return movesType
     }
     
     func setBaseEvolutionPokemon() -> ([String],[String]){
@@ -323,6 +357,7 @@ class PokemonDetailPresenter : PokemonDetailInteractorOutputProtocol,PokemonDeta
     
     func singlePokemonFetchedSuccessfully(model: SinglePokemon) {
         pokemonData = model
+        fetchMovesDetail()
         view?.reloadData()
     }
     
@@ -340,6 +375,13 @@ class PokemonDetailPresenter : PokemonDetailInteractorOutputProtocol,PokemonDeta
             numberOfMegaEvolution(model.chain?.species?.url ?? "")
         }
 
+    }
+    
+    func pokemonMovesFetchSuccesfully(model: PokemonMovesDetail) {
+        movesDetail.append(model)
+        if let name = model.name{
+            movesType[name] = model.type.name
+        }
     }
     
     
@@ -363,6 +405,9 @@ class PokemonDetailPresenter : PokemonDetailInteractorOutputProtocol,PokemonDeta
                 evolutionNames[firstEvolution[i]] = pokemonEvolution?.chain?.evolvesTo?[i].evolutionDetails?.compactMap({$0.minLevel})
                 evolutionStone[firstEvolution[i]] = pokemonEvolution?.chain?.evolvesTo?[i].evolutionDetails?.compactMap({$0.item?.name})
                 evolutionHappinessLevel[firstEvolution[i]] = pokemonEvolution?.chain?.evolvesTo?[i].evolutionDetails?.compactMap{$0.minHappiness}
+                evolutionHeldItem[firstEvolution[i]] = pokemonEvolution?.chain?.evolvesTo?[i].evolutionDetails?.compactMap{$0.heldItem?.name}
+                evolutionTimeAndDay[firstEvolution[i]] = pokemonEvolution?.chain?.evolvesTo?[i].evolutionDetails?.compactMap{$0.timeOfDay}
+                evolutionTriggers[firstEvolution[i]] = pokemonEvolution?.chain?.evolvesTo?[i].evolutionDetails?.compactMap{$0.trigger?.name}
                 firstEvolutionSpecie[firstEvolution[i]] = pokemonEvolution?.chain?.evolvesTo?[i].species?.url
                 basePokemon = pokemonEvolution?.chain?.species?.name ?? ""
                 if !basePokemonArray.contains(pokemonEvolution?.chain?.species?.name ?? ""){
@@ -374,8 +419,11 @@ class PokemonDetailPresenter : PokemonDetailInteractorOutputProtocol,PokemonDeta
                 for i in 0..<firstEvolution.count{
                     for j in 0..<secondEvolution.count{
                         secondEvolutionName[secondEvolution[j]] = pokemonEvolution?.chain?.evolvesTo?[i].evolvesTo?[j].evolutionDetails?.compactMap{($0.minLevel)}
-                        secondEvolutionStone[secondEvolution[j]] = pokemonEvolution?.chain?.evolvesTo?[i].evolvesTo?[j].evolutionDetails?.compactMap{$0.item?.name}
+                        evolutionStone[secondEvolution[j]] = pokemonEvolution?.chain?.evolvesTo?[i].evolvesTo?[j].evolutionDetails?.compactMap{$0.item?.name}
                         secondEvolutionHappinessLavel[secondEvolution[j]] = pokemonEvolution?.chain?.evolvesTo?[i].evolvesTo?[j].evolutionDetails?.compactMap{$0.minHappiness}
+                        evolutionHeldItem[secondEvolution[j]] = pokemonEvolution?.chain?.evolvesTo?[i].evolvesTo?[j].evolutionDetails?.compactMap{$0.heldItem?.name}
+                        evolutionTimeAndDay[secondEvolution[j]] = pokemonEvolution?.chain?.evolvesTo?[i].evolvesTo?[j].evolutionDetails?.compactMap{$0.timeOfDay}
+                        evolutionTriggers[secondEvolution[j]] = pokemonEvolution?.chain?.evolvesTo?[i].evolvesTo?[j].evolutionDetails?.compactMap{$0.trigger?.name}
                         secondEvolutionSpecie[secondEvolution[j]] = pokemonEvolution?.chain?.evolvesTo?[i].evolvesTo?[j].species?.url
                         firstForm = pokemonEvolution?.chain?.evolvesTo?[i].species?.name ?? ""
                         if !basePokemonArray.contains(pokemonEvolution?.chain?.evolvesTo?[i].species?.name ?? ""){

@@ -66,10 +66,7 @@ class EvolutionChainCell: UITableViewCell{
         rightArrow.anchor(width: 55, height: 30)
         rightArrow.centerX(inView: mainView)
         rightArrow.centerY(inView: mainView)
-        rightArrowLabel.anchor(bottom: rightArrow.topAnchor,paddingTop: 20, width: 100, height: 20)
+        rightArrowLabel.anchor(bottom: rightArrow.topAnchor,paddingTop: 20, height: 20)
         rightArrowLabel.centerX(inView: mainView)
     }
-    
-    
-    
 }

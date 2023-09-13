@@ -33,6 +33,15 @@ class EvolutionTableCell: UITableViewCell{
     var basePokemonImgaeArray = [String?]()
     var evolutionPokemonImageArray = [String?]()
     var evolutionArray = [String]()
+    var evolutionHeldItem = [String: [String]]()
+    var secondEvolutionHeldItem = [String: [String]]()
+    var evolutionTimeAndDay = [String: [String]]()
+    var evolutionTriggers = [String:[String]]()
+    var pokemonLevel = [Int]()
+    var pokemonStone = [String]()
+    var pokemonHeldItem = [String]()
+    var pokemonTigger = [String]()
+    var pokemonCondition = [String]()
     
     private let manager : PokemonManager = PokemonManager()
     private lazy var pokemonTableView: UITableView = {
@@ -49,15 +58,20 @@ class EvolutionTableCell: UITableViewCell{
     }()
     
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        pokemonTableView.translatesAutoresizingMaskIntoConstraints = false
+    override func awakeFromNib(){
         contentView.addSubview(titleLabel)
         contentView.addSubview(pokemonTableView)
         setUpContraint()
-        
     }
+    
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        contentView.addSubview(titleLabel)
+        contentView.addSubview(pokemonTableView)
+        setUpContraint()
+    }
+    
     func reloadTableView() {
         evolutionNames.merge(secondEvolutionName) { (evolutionNames, _) in
             evolutionNames
@@ -95,17 +109,45 @@ extension EvolutionTableCell: UITableViewDataSource,UITableViewDelegate{
         let cell = pokemonTableView.dequeueReusableCell(withIdentifier: EvolutionChainCell.reuseIdentifier, for: indexPath) as! EvolutionChainCell
         if !baseEvolutionArray.isEmpty{
             cell.basePokemonLabel.text = baseEvolutionArray[indexPath.row].replacingOccurrences(of: "-", with: " ").capitalized
-            var currentPokemon  = evolutionArray[indexPath.row].capitalized
-            cell.evolutionPokemonLabel.text = currentPokemon.replacingOccurrences(of: "-", with: " ").capitalized
-            if let levelAvailable = evolutionNames[evolutionArray[indexPath.row]]?.first{
-                cell.rightArrowLabel.text = "Level \(levelAvailable)"
-            }else{
-                if let stoneAvailable = evolutionStone[evolutionArray[indexPath.row]]?.first{
-                    cell.rightArrowLabel.text = "use \(stoneAvailable)"
-                }else{
-                    cell.rightArrowLabel.text = ""
+            cell.evolutionPokemonLabel.text = evolutionArray[indexPath.row].replacingOccurrences(of: "-", with: " ").capitalized
+            if let levels = evolutionNames[evolutionArray[indexPath.row]]{
+                if !levels.isEmpty{
+                    cell.rightArrowLabel.text = "Level \(levels.first ?? 0 )"
                 }
             }
+            if let stones = evolutionStone[evolutionArray[indexPath.row]]{
+                if !stones.isEmpty{
+                    cell.rightArrowLabel.text = "Use \(stones.first!.replacingOccurrences(of: "-", with: " ").capitalized)"
+                }
+            }
+            if let heldItems = evolutionHeldItem[evolutionArray[indexPath.row]]{
+                if !heldItems.isEmpty{
+                    cell.rightArrowLabel.text = "Use \(heldItems.first!.replacingOccurrences(of: "-", with: " ").capitalized)"
+                }
+            }
+            if let timeAndDay = evolutionTimeAndDay[evolutionArray[indexPath.row]]{
+                if timeAndDay.first != ""{
+                    cell.rightArrowLabel.text = "In \(evolutionTimeAndDay[evolutionArray[indexPath.row]]?.first?.capitalized ?? "")"
+                }
+            }
+            
+            
+            
+            if evolutionArray[indexPath.row].contains("mega"){
+                cell.rightArrowLabel.text = "Mega Stone"
+            }else if evolutionArray[indexPath.row].contains("gmax"){
+                cell.rightArrowLabel.text = "Max Soup"
+            }
+            
+            
+//            else if  !evolutionTimeAndDay[evolutionArray[indexPath.row]]!.isEmpty{
+//                cell.rightArrowLabel.text = "In \(evolutionTimeAndDay[evolutionArray[indexPath.row]]?.first?.capitalized ?? "")"
+//            }else if evolutionHeldItem[evolutionArray[indexPath.row]] != nil{
+//                cell.rightArrowLabel.text = (evolutionHeldItem[evolutionArray[indexPath.row]]?.first?.replacingOccurrences(of: "-", with: " ").capitalized ?? "")
+//                if let trigger = evolutionTriggers[evolutionArray[indexPath.row]]?.first {
+//                    (" + \(trigger.capitalized)")
+//                }
+//            }
         }
         if !basePokemonImgaeArray.isEmpty{
             if let urlString = basePokemonImgaeArray[indexPath.row]{

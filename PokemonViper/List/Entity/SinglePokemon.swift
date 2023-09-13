@@ -32,12 +32,13 @@ struct SinglePokemon: Codable {
 
     let name: String?
     let sprites: Sprites?
+    let moves: [Move]
     let id: Int64?
     let types: [TypeElement]?
     let stats: [Stat]
     
     enum CodingKeys: String, CodingKey {
-        case  name,sprites,id,types,stats
+        case  name,sprites,id,types,stats,moves
     }
 }
 
@@ -119,6 +120,30 @@ struct Species: Codable {
     let url: String
 }
 
+//MARK: - Moves
+struct Move: Codable {
+    let move: Species
+    let versionGroupDetails: [VersionGroupDetail]
+
+    enum CodingKeys: String, CodingKey {
+        case move
+        case versionGroupDetails = "version_group_details"
+    }
+}
+
+// MARK: - VersionGroupDetail
+struct VersionGroupDetail: Codable {
+    let levelLearnedAt: Int
+    let moveLearnMethod, versionGroup: Species
+
+    enum CodingKeys: String, CodingKey {
+        case levelLearnedAt = "level_learned_at"
+        case moveLearnMethod = "move_learn_method"
+        case versionGroup = "version_group"
+    }
+}
+
+
 struct PokemonSavedData{
     var name: String?
     var id: UUID?
@@ -128,6 +153,10 @@ struct PokemonSavedData{
     var secondaryType: String?
     
 }
+
+
+
+
 
 
 

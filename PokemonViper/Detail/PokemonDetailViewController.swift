@@ -26,6 +26,7 @@ class PokemonDetailViewController : UIViewController,PokemonDetailViewProtocol{
         tableView.register(pokemonDescriptionCell.self, forCellReuseIdentifier: pokemonDescriptionCell.reuseIdentifier)
         tableView.register(StatiticsTableCell.self, forCellReuseIdentifier: StatiticsTableCell.reuseIdentifier)
         tableView.register(EvolutionTableCell.self, forCellReuseIdentifier: EvolutionTableCell.reuseIdentifier)
+        tableView.register(MoveTableViewCell.self, forCellReuseIdentifier: MoveTableViewCell.reuseIdentifier)
         return tableView
     }()
     
@@ -219,7 +220,7 @@ class PokemonDetailViewController : UIViewController,PokemonDetailViewProtocol{
 extension PokemonDetailViewController: UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -260,21 +261,38 @@ extension PokemonDetailViewController: UITableViewDelegate,UITableViewDataSource
                 cell.evolutionPokemonImageArray = presenter.normalEvolutionChainImages.1
                 cell.evolutionStone = presenter.evolutionStone
                 cell.evolutionHappinessLevel = presenter.evolutionHappinessLevel
-                cell.secondEvolutionStone = presenter.secondEvolutionStone
                 cell.secondEvolutionHappinessLavel = presenter.secondEvolutionHappinessLavel
+                cell.evolutionHeldItem = presenter.evolutionHeldItem
+                cell.evolutionTriggers = presenter.evolutionTriggers
+                cell.evolutionTimeAndDay = presenter.evolutionTimeAndDay
+            }else{
+                cell.isHidden = true
             }
             cell.reloadTableView()
             return cell
+        }else if indexPath.row == 3{
+            let cell = pokemonTableView.dequeueReusableCell(withIdentifier: MoveTableViewCell.reuseIdentifier, for: indexPath) as! MoveTableViewCell
+            cell.titleLabel.text = "Moves"
+            cell.movesLevel = presenter.setUpMoveslevel()
+            cell.moveType = presenter.setUpMoveType()
+            cell.reloadTableView()
+            return cell
         }
+        
         return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 2{
-            if !presenter.normalEvolutionChain.0.isEmpty{
+            if !presenter.normalEvolutionChainImages.0.isEmpty{
                 let height = (presenter.normalEvolutionChain.0.count) * 120
                 return CGFloat(height)+80.0
+            }else{
+                return 0
             }
+        }else if indexPath.row == 3{
+            let height = presenter.setUpMoveslevel().count * 70
+            return CGFloat(height) + 80.0
         }
         return UITableView.automaticDimension
     }
