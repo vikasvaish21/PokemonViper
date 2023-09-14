@@ -28,22 +28,12 @@ Pokemon is an iOS application that interacts with the Pokemon API.
 - SOLID
 
 # 3rd party libraries
-- RxSwift
-- Swinject
+
 - Kingfisher
-- SwiftLint
-
-# Unit testing
-- SwiftyMocky (+Sourcery)
-- RxTest
-- RxBlocking
-
-# UI testing
-- SnapshotTesting
+- Alamofire
 
 # Requirements
 - iOS 14.0+
 - Swift 5.0+
 
-# License
-Copyright 2022 Jordi Gámez
+
